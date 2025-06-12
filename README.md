@@ -6,13 +6,13 @@
 
 ## 📍 Project Overview
 
-This project was built to help Seattle residents and visitors explore local parks based on neighborhood and park type. The application fetches real-time data from a public API and generates an interactive map using Python.
+This project was built to help Seattle residents and visitors explore local parks based on neighborhood and park location. The application fetches real-time data from a public API and generates an interactive map using Python.
 
 The final output is a user-friendly HTML file (`seattle_parks_map.html`) where users can:
 
 - View Seattle parks clustered on a map
-- Hover or click to see the park name, type, and neighborhood
-- Filter visually by exploring different locations in the city
+- Hover or click to see the park and neighborhood, and more info if it is included in API. 
+- Filter visually by clicking on neighborhoods in the city
 
 ---
 
@@ -93,12 +93,7 @@ See the project demo video [link goes here when uploaded].
 
 ## 👩‍💻 Instructor Access
 
-If this repo is private, GitHub access has been granted to:
-- `sayamindu`
-- `ShengzhiW`
-- `donghoon-io`
-
----
+This repo is public
 
 ## 📜 Acknowledgments
 
