@@ -1,7 +1,6 @@
 import requests
 import folium
 from folium.plugins import MarkerCluster
-import os
 
 # API endpoint
 url = "https://data.seattle.gov/resource/v5tj-kqhc.json"
@@ -14,19 +13,25 @@ parks = response.json()
 seattle_map = folium.Map(location=[47.6062, -122.3321], zoom_start=12)
 marker_cluster = MarkerCluster().add_to(seattle_map)
 
-# Categorize and add parks to map
+# Add park markers
 for park in parks:
-    name = park.get("park_name") or "Unnamed Park"
+    name = park.get("name", "").strip()
+    zip_code = park.get("zip_code", "").strip()
     loc = park.get("location_1", {})
-    lat = float(loc.get("latitude", 0))
-    lon = float(loc.get("longitude", 0))
-    neighborhood = park.get("neighborhood") or "Unknown"
-    park_type = park.get("park_type") or "Unknown"
+
+    # Validate data
+    if not name or "latitude" not in loc or "longitude" not in loc:
+        continue
+
+    lat = float(loc["latitude"])
+    lon = float(loc["longitude"])
 
     if lat == 0 or lon == 0:
         continue  # Skip invalid coordinates
 
-    popup = folium.Popup(f"<b>{name}</b><br>Type: {park_type}<br>Neighborhood: {neighborhood}", max_width=300)
+    # Create marker
+    popup_html = f"<b>{name}</b><br>ZIP Code: {zip_code if zip_code else 'N/A'}"
+    popup = folium.Popup(popup_html, max_width=300)
     folium.Marker(location=[lat, lon], popup=popup).add_to(marker_cluster)
 
 # Save map
