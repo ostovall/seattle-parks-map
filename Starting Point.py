@@ -16,12 +16,12 @@ marker_cluster = MarkerCluster().add_to(seattle_map)
 
 # Categorize and add parks to map
 for park in parks:
-    name = park.get("park_name", "Unnamed Park")
+    name = park.get("park_name") or "Unnamed Park"
     loc = park.get("location_1", {})
     lat = float(loc.get("latitude", 0))
     lon = float(loc.get("longitude", 0))
-    neighborhood = park.get("neighborhood", "Unknown")
-    park_type = park.get("park_type", "Unknown")
+    neighborhood = park.get("neighborhood") or "Unknown"
+    park_type = park.get("park_type") or "Unknown"
 
     if lat == 0 or lon == 0:
         continue  # Skip invalid coordinates
