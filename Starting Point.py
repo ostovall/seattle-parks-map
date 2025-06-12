@@ -33,3 +33,4 @@ for park in parks:
 output_path = "seattle_parks_map.html"
 seattle_map.save(output_path)
 print(f"Map saved to {output_path}")
+# checking the commit works ugh
