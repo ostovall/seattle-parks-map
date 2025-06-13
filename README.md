@@ -1,100 +1,59 @@
-# 🌲 Seattle Parks Interactive Map
+# Seattle Parks Interactive Map
 
-**Author:** Olivia Stovall  
-**Course:** HCDE 310  
-**Date:** June 2025  
+An interactive map of Seattle's public parks built with Python and Folium, using open data from the Seattle Parks and Recreation dataset.
 
-## 📍 Project Overview
+## What This Project Does
 
-This project was built to help Seattle residents and visitors explore local parks based on neighborhood and park location. The application fetches real-time data from a public API and generates an interactive map using Python.
+This app fetches live JSON data from Seattle's open data API and plots public parks on an interactive, zoomable map with clustered markers. Clicking a marker reveals the park's name. It makes it easier to visually explore parks across ZIP codes.
 
-The final output is a user-friendly HTML file (`seattle_parks_map.html`) where users can:
+## How to Run It
 
-- View Seattle parks clustered on a map
-- Hover or click to see the park and neighborhood, and more info if it is included in API. 
-- Filter visually by clicking on neighborhoods in the city
+1. Clone or download this repository.
+2. Ensure you have Python 3 installed.
+3. Install dependencies:
 
----
+pip install folium requests
 
-## 🔧 Technologies Used
+markdown
+Copy
+Edit
 
-- `requests` – to fetch data from the Seattle Open Data API  
-- `folium` – to create an interactive map with markers and clustering  
-- `json` – to parse and manage API responses  
-- No API key required  
+4. Run the script:
 
----
-
-## 🔗 API Details
-
-**API Used:**  
-[Seattle Parks and Recreation - Park Addresses API (JSON)](https://data.seattle.gov/resource/v5tj-kqhc.json)
-
-**Key fields used from the dataset:**
-- `park_name`
-- `location_1` (latitude/longitude)
-- `neighborhood`
-- `park_type`
-
-This API requires no authentication and returns structured JSON data suitable for mapping.
-
----
-
-## ▶️ How to Run
-
-1. **Clone or download this repo**
-2. Make sure Python 3 is installed
-3. Install required packages:
-
-```bash
-pip install requests folium
-```
-
-4. Run the Python script:
-
-```bash
 python Starting\ Point.py
-```
 
-5. Open the generated file `seattle_parks_map.html` in any browser.
+markdown
+Copy
+Edit
 
----
+5. Open the generated `seattle_parks_map.html` file in your web browser.
 
-## 📦 Output
+## Data Source
 
-The output is a static HTML file:
-- **File:** `seattle_parks_map.html`
-- **Type:** Interactive leaflet map
-- **Features:** Clickable markers, category info, park names
+- API Endpoint: https://data.seattle.gov/resource/v5tj-kqhc.json  
+- API Docs: https://dev.socrata.com/foundry/data.seattle.gov/v5tj-kqhc  
+- No API key is required.
 
----
+## Features
 
-## 🎯 Minimum Functionality Delivered
+- Interactive Leaflet.js map via Folium
+- Clustering for park markers
+- Automatic map centering over Seattle
+- Skips parks with missing or incomplete data
 
-✅ Used a new API (Socrata/Seattle Open Data API)  
-✅ Pulled real-time JSON data  
-✅ Processed and filtered parks by coordinates and categories  
-✅ Generated user-friendly HTML output  
-✅ Used a new module (`folium`) not covered in class  
+## Live Demo (if GitHub Pages is enabled)
 
----
+If enabled, the site will be viewable at:
 
-## 🚀 Stretch Goal (partial)
+https://ostovall.github.io/seattle-parks-map/
 
-Implemented marker clustering to improve map readability with dense park distributions.
+markdown
+Copy
+Edit
 
----
+## Acknowledgments
 
-## 🎥 Video
-
-See the project demo video [link goes here when uploaded].
-
----
-
-## 👩‍💻 Instructor Access
-
-This repo is public
-
-## 📜 Acknowledgments
-
-Project structure and problem-solving were supported by class materials and AI editing via ChatGPT (June 2025). All code and logic are original.
+- Seattle Open Data Portal (data.seattle.gov)  
+- Socrata API Tools  
+- Folium + Leaflet.js
+- Chatgpt asked to debugged but code content and ideas are my own. 
